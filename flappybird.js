@@ -40,7 +40,7 @@ function draw()
     
     for(var i=0;i<pipe.length;i++)
     { ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
-      ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+      ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant + pipeSouth.height);
       pipe[i].x--;
       if(pipe[i].x==150)
        {
@@ -50,7 +50,7 @@ function draw()
             });
         }
         if((bx + bird.width >= pipe[i].x && bx <= pipe[i].x + pipeNorth.width) && 
-           (by <=pipe[i].y + pipeNorth.height || by + bird.height >=pipe[i].y+constant) || 
+           (by <=pipe[i].y + pipeNorth.height || by + bird.height >=pipe[i].y+ pipeNorth.height + gap) || 
            by + bird.height >= cvs.height -(fg.height-20))
          {location.reload();}  
 
